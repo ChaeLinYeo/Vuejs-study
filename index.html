@@ -1,0 +1,527 @@
+<!-- <html>
+  <head>
+    <title>Vue Sample</title>
+  </head>
+  <body>
+    <div id='app'>
+      {{message}}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello Vue.js!'
+        }
+      });
+    </script>
+  </body>
+</html> -->
+
+
+
+<!-- <html>
+  <head>
+    <title>Vue Sample</title>
+  </head>
+  <body>
+    <div id="app">
+      {{message}}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello Vue.js!'
+        }
+      });
+    </script>
+  </body>
+</html> -->
+
+
+
+<!-- <html>
+  <head>
+    <title>Vue Component Registration</title>
+  </head>
+  <body>
+    <div id="app">
+      <button>컴포넌트 등록</button>
+      <my-component></my-component>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      Vue.component('my-component', {
+        template: '<div>전역 컴포넌트가 등록되었습니다!</div>'
+      });
+
+      new Vue({
+        el: '#app'
+      });
+    </script>
+  </body>
+</html> -->
+
+
+
+<!-- <html>
+  <head>
+    <title>Vue Component Registration</title>
+  </head>
+  <body>
+    <div id="app">
+      <button>컴포넌트 등록</button>
+      <my-local-component></my-local-component>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      var cmp = {
+        // 컴포넌트 내용
+        template: '<div>지역 컴포넌트가 등록되었습니다!</div>'
+      };
+
+      new Vue({
+        el: '#app',
+        components: {
+          'my-local-component': cmp
+        }
+      });
+    </script>
+  </body>
+</html> -->
+
+
+
+<!-- <html>
+  <head>
+    <title>Vue Component Registration</title>
+  </head>
+  <body>
+    <div id="app">
+      <h3>첫 번째 인스턴스 영역</h3>
+      <my-global-component></my-global-component>
+      <my-local-component></my-local-component>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      //전역 컴포넌트 등록
+      Vue.component('my-global-component', {
+        template: '<div>전역 컴포넌트 입니다. </div>'
+      });
+      //지역 컴포넌트 내용
+      var cmp = {
+        template: '<div>지역 컴포넌트입니다. </div>'
+      };
+      new Vue({
+        el: '#app',
+        //지역 컴포넌트 등록
+        components: {
+          'my-local-component' : cmp
+        }
+      });
+    </script>
+  </body>
+</html> -->
+
+
+
+<!-- <html>
+  <head>
+    <title>Vue Component Registration</title>
+  </head>
+  <body>
+    <div id="app">
+      <h3>첫 번째 인스턴스 영역</h3>
+      <my-global-component></my-global-component>
+      <my-local-component></my-local-component>
+    </div>
+    <hr>
+    <div id="app2">
+      <h3>두 번째 인스턴스 영역</h3>
+      <my-global-component></my-global-component>
+      <my-local-component></my-local-component>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      //전역 컴포넌트 등록
+      Vue.component('my-global-component', {
+        template: '<div>전역 컴포넌트 입니다. </div>'
+      });
+      //지역 컴포넌트 내용
+      var cmp = {
+        template: '<div>지역 컴포넌트입니다. </div>'
+      };
+      new Vue({
+        el: '#app',
+        //지역 컴포넌트 등록
+        components: {
+          'my-local-component' : cmp
+        }
+      });
+
+      //두 번째 인스턴스
+      new Vue({
+        el: '#app2'
+      });
+    </script>
+  </body>
+</html> -->
+
+
+
+<!-- <html>
+  <head>
+    <title>Vue Component Registration</title>
+  </head>
+  <body>
+    <div id="app">
+      <my-component1></my-component1>
+      <my-component2></my-component2>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      //첫 번째 컴포넌트 내용
+      var cmp1 = {
+        template: '<div>첫 번째 지역 컴포넌트 : {{ cmp1Data }}</div>',
+        data: function(){
+          return{
+            cmp1Data : 100
+          }
+        }
+      };
+      //두 번째 컴포넌트 내용
+      var cmp2 = {
+        template: '<div>두 번째 지역 컴포넌트 : {{ cmp2Data }}</div>',
+        data: function(){
+          return{
+            cmp2Data : cmp1.data.cmp1Data
+          }
+        }
+      };
+
+      new Vue({
+        el: '#app',
+        //지역 컴포넌트 등록
+        components: {
+          'my-component1': cmp1,
+          'my-component2': cmp2
+        }
+      });
+    </script>
+  </body>
+</html> -->
+
+
+
+<!-- <html>
+  <head>
+    <title>Vue Component Registration</title>
+  </head>
+  <body>
+    <div id="app">
+      <child-component v-bind:propsdata="message"></child-component>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      Vue.component('child-component', {
+        props: ['propsdata'],
+        template: '<p>{{ propsdata }}</p>',
+      });
+
+      new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello Vue! passed from Parent Component'
+        }
+      });
+    </script>
+  </body>
+</html> -->
+
+
+
+<!-- <html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Event Emit Sample</title>
+  </head>
+  <body>
+    <div id="app">
+      <child-component v-on:show-log="printText"></child-component>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      Vue.component('child-component', {
+        template: '<button v-on:click="showLog">show</button>',
+        methods: {
+          showLog: function() {
+            this.$emit('show-log');
+          }
+        }
+      });
+
+      new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello Vue! passed from Parent Component'
+        },
+        methods: {
+          printText: function() {
+            console.log("received an event");
+          }
+        }
+      });
+    </script>
+  </body>
+</html> -->
+
+
+
+<!-- <html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Event Emit Sample</title>
+  </head>
+  <body>
+    <div id="app">
+      <child-component></child-component>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      var eventBus = new Vue();
+      Vue.component('child-component', {
+        template: '<div>하위 컴포넌트 영역입니다.<button v-on:click="showLog">show</button></div>',
+        methods: {
+          showLog: function(){
+            eventBus.$emit('triggerEventBus', 100);
+          }
+        }
+      });
+
+      var app = new Vue({
+        el: '#app',
+        created: function(){
+          eventBus.$on('triggerEventBus', function(value){
+            console.log("이벤트를 전달받음. 전달받은 값 : ", value);
+          });
+        }
+      });
+    </script>
+  </body>
+</html> -->
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Router Sample</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>뷰 라우터 예제</h1>
+      <p>
+        <router-link to="/main">Main 컴포넌트로 이동</router-link>
+        <router-link to="/login">Login 컴포넌트로 이동</router-link>
+      </p>
+      <router-view></router-view>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+    <script>
+      // 3. Main. Login 컴포넌트 내용 정의
+      var Main = { template: '<div>main</div>' };
+      var Login = { template: '<div>login</div>' };
+
+      // 4. 각 url에 해당하는 컴포넌트 등록
+      var routes = [
+        { path: '/main', component: Main },
+        { path: '/login', component: Login }
+      ];
+
+      // 5. 뷰 라우터 정의
+      var router = new VueRouter({
+        routes
+      });
+
+      // 6. 뷰 라우터를 인스턴스에 등록
+      var app = new Vue({
+        router
+      }).$mount('#app');
+    </script>
+  </body>
+</html> -->
+
+<!--
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Nested Router</title>
+  </head>
+  <body>
+    <div id="app">
+      <router-view></router-view>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+    <script>
+      var User = {
+        template: '
+          <div>
+            User Component
+            <router-view></router-view>
+          </div>
+        '
+      };
+      var UserProfile = { template: '<p>User Profile Component</p>' };
+      var UserPost = { template: '<p>User Post Component</p>' };
+
+      var routes = [
+        {
+          path: '/user',
+          component: User,
+          children: [
+            {
+              path: 'posts',
+              component: UserPost
+            },
+            {
+              path: 'profile',
+              component: UserProfile
+            },
+          ]
+        }
+      ];
+
+      var router = new VueRouter({
+        routes
+      });
+
+      var app = new Vue({
+        router
+      }).$mount('#app');
+    </script>
+  </body>
+</html> -->
+
+
+<!--
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width", initial-scale=1.0">
+    <title>Vue Named View Sample</title>
+  </head>
+  <body>
+    <div id="app">
+      <router-view name="header"></router-view>
+      <router-view></router-view>
+      <router-view name="footer"></router-view>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+    <script>
+      var Body = {template: '<div>This is Body</div>'};
+      var Header = {template: '<div>This is Header</div>'};
+      var Footer = {template: '<div>This is Footer</div>'};
+
+      var router = new VueRouter({
+        routes: [
+          {
+            path:'/',
+            components: {
+              default: Body,
+              header: Header,
+              footer: Footer
+            }
+          }
+        ]
+      });
+
+      var app = new Vue({
+        router
+      }).$mount('#app');
+    </script>
+  </body>
+</html> -->
+
+
+<!--
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Router Quiz</title>
+  </head>
+  <body>
+    <div id="app">
+      <router-view name="header"></router-view>
+      <router-view></router-view>
+      <router-view name="footer"></router-view>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+    <script>
+
+      var Body = { template: '<div>This is Body</div>' };
+      var Header = { template: '<div>This is Header</div>' };
+      var Footer = { template: '<div>This is Footer</div>' };
+
+      // 실습 #2 - LoginHeader, LoginBody, LoginFooter 컴포넌트 내용을 정의해보세요.
+      var LoginBody = { template: '<div>This is LoginBody</div>' };
+      var LoginHeader = { template: '<div>This is LoginHeader</div>' };
+      var LoginFooter = { template: '<div>This is LoginFooter</div>' };
+
+      var router = new VueRouter({
+        routes: [
+          {
+            path: '/',
+            components: {
+              default: Body,
+              header: Header,
+              footer: Footer
+            }
+          },
+          // 실습 #1 - '/login' url을 추가하고, LoginHeader, LoginBody, LoginFooter 컴포넌트를 추가해보세요.
+          {
+            path: '/login',
+            components: {
+              default: LoginBody,
+              header: LoginHeader,
+              footer: LoginFooter
+            }
+          },
+        ]
+      })
+
+      var app = new Vue({
+        router
+      }).$mount('#app');
+
+    </script>
+  </body>
+</html> -->
